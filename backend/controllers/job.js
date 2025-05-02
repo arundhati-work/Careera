@@ -2,10 +2,15 @@ const Job = require("../models/Job");
 
 const getAllJobs = async (req, res) => {   
     try{
-        const jobs = await Job.find({userId: req.user.id}).sort({applicationDate: -1});
-        res.status(200).json({
-            jobs
-        });
+        const query = {userId: req.user.id};
+        if (req.query.companyName) query.companyName = req.query.companyName;
+        if (req.query.role) query.role = req.query.role;
+        if (req.query.location) query.location = req.query.location;
+        if (req.query.status) query.status = req.query.status;
+        if (req.query.applicationDate) query.applicationDate = new Date(req.query.applicationDate);
+
+        const jobs = await Job.find(query).sort({applicationDate: -1});
+        res.status(200).json({jobs});
     }
     catch(err) {
         res.status(500).json({message: "Server error"});
