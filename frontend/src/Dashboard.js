@@ -64,10 +64,10 @@ const Dashboard = () => {
       <header className="dashboard-header">
         <h1>Job Application Tracker</h1>
         <div className="dashboard-buttons">
-          <button className="btn logout" onClick={handleLogout}>Logout</button>
           <button className="btn add-job" onClick={() => setShowForm(true)}>+ Add Job</button>
           <button className="btn delete-rejected" onClick={handleDeleteRejected}>Delete All Rejected</button>
-          <Link to="/profile" className="back-link" style={{marginLeft: "0.5rem"}}>User Profile →</Link>
+          <Link to="/profile" className="back-link" style={{marginLeft: "0.5rem"}}>User Profile</Link>
+          <button className="btn logout" onClick={handleLogout}>Logout</button>
         </div>
       </header>
 
