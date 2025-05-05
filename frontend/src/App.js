@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import ResumeViewer from './ResumeViewer';
 import CoverLetterViewer from './CoverLetterViewer';
 import UserProfile from './UserProfile';
+import ViewJob from './ViewJob';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path="/resume/:id" element={<PrivateRoute><ResumeViewer /></PrivateRoute>} />
           <Route path="/coverletter/:id" element={<PrivateRoute><CoverLetterViewer /></PrivateRoute>} />
           <Route path="/profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
+          <Route path="/jobs/:id" element={<PrivateRoute><ViewJob /></PrivateRoute>} />
+
       </Routes>
     </Router>
   );
