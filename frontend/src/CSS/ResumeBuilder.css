@@ -1,0 +1,92 @@
+.resume-builder {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #000;
+    background: #fff;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  /* Left side: Inputs */
+  .resume-form {
+    width: 48%;
+    padding-right: 1.5rem;
+    border-right: 1px solid #ccc;
+  }
+  
+  .resume-form h2,
+  .resume-form h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .resume-form label {
+    font-weight: 600;
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .resume-form input,
+  .resume-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+  }
+  
+  .resume-form textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  .resume-actions {
+    margin-top: 1.5rem;
+  }
+  
+  .resume-actions button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background: white;
+    border: 1px solid black;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .resume-actions button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Right side: Preview */
+  .resume-preview {
+    width: 48%;
+    padding-left: 1.5rem;
+  }
+  
+  .resume-preview h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .resume-preview h2 {
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+  }
+  
+  .resume-preview p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+  }
+  

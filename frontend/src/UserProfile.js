@@ -12,7 +12,7 @@ const UserProfile = () => {
   const [github, setGithub] = useState("");
   const [portfolio, setPortfolio] = useState("");
   const [summary, setSummary] = useState("");
-  const [education, setEducation] = useState([{ degree: "", school: "", duration: "", relevantCourses: [] }]);
+  const [education, setEducation] = useState([{ degree: "", school: "", duration: "", relevantCourses: "" }]);
   const [experience, setExperience] = useState([]);
   const [projects, setProjects] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -235,7 +235,7 @@ const UserProfile = () => {
                   <input type="text" placeholder="Degree" value={edu.degree} onChange={(e) => handleEduChange(idx, "degree", e.target.value)} />
                   <input type="text" placeholder="School" value={edu.school} onChange={(e) => handleEduChange(idx, "school", e.target.value)} />
                   <input type="text" placeholder="Duration" value={edu.duration} onChange={(e) => handleEduChange(idx, "duration", e.target.value)} />
-                  <input type="text" placeholder="Relevant Courses (comma-separated)" value={edu.relevantCourses.join(", ")} onChange={(e) => handleEduChange(idx, "relevantCourses", e.target.value.split(",").map(c => c.trim()))} />
+                  <input type="text" placeholder="Relevant Courses" value={edu.relevantCourses} onChange={(e) => handleEduChange(idx, "relevantCourses", e.target.value)} />
                   <button type="button" className="remove-btn" onClick={() => handleRemoveEducation(idx)}>🗑️</button>
                 </div>
               ))}

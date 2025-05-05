@@ -9,6 +9,7 @@ import ResumeViewer from './ResumeViewer';
 import CoverLetterViewer from './CoverLetterViewer';
 import UserProfile from './UserProfile';
 import ViewJob from './ViewJob';
+import ResumeBuilder from './ResumeBuilder';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/coverletter/:id" element={<PrivateRoute><CoverLetterViewer /></PrivateRoute>} />
           <Route path="/profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
           <Route path="/jobs/:id" element={<PrivateRoute><ViewJob /></PrivateRoute>} />
+          <Route path="/resume-builder" element={<PrivateRoute><ResumeBuilder /></PrivateRoute>} />
 
       </Routes>
     </Router>
