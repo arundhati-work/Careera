@@ -7,6 +7,8 @@ import './CSS/Dashboard.css';
 const Dashboard = () => {
   const [jobs, setJobs] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [editingJob, setEditingJob] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +22,15 @@ const Dashboard = () => {
       .then(res => setJobs(res.data.jobs))
       .catch(err => console.error(err));
   };
+
+  const handleDelete = (jobId) => {
+    if (window.confirm("Are you sure you want to delete this job?")) {
+      axios.delete(`/jobs/${jobId}`)
+        .then(() => setJobs(jobs.filter(job => job._id !== jobId)))
+        .catch(err => console.error("Delete failed", err));
+    }
+  };
+  
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -49,7 +60,16 @@ const Dashboard = () => {
         </div>
       </header>
 
-      {showForm && <JobForm onJobCreated={onJobCreated} closeForm={() => setShowForm(false)} />}
+      {showForm && (
+        <JobForm
+          onJobCreated={onJobCreated}
+          closeForm={() => {
+            setShowForm(false);
+            setEditingJob(null);
+          }}
+          editingJob={editingJob}
+        />
+      )}
 
       <div className="table-container">
         <table className="jobs-table">
@@ -64,6 +84,7 @@ const Dashboard = () => {
               <th>Status</th>
               <th>Resume</th>
               <th>Cover Letter</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -97,6 +118,12 @@ const Dashboard = () => {
                     {job.coverLetter ?
                       <Link className="link" to={`/coverletter/${job._id}`}>View Cover Letter</Link> :
                       <span className="no-link">No cover letter</span>}
+                  </td>
+                  <td>
+                    <div className="action-buttons">
+                      <button className="edit-btn" onClick={() => {setEditingJob(job); setShowForm(true)}}>✏️</button>
+                      <button className="delete-btn" onClick={() => handleDelete(job._id)}>🗑️</button>
+                    </div>
                   </td>
                 </tr>
               ))

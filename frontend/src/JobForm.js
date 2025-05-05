@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "./api/axios";
 import "./CSS/JobForm.css";
 
-const JobForm = ({ onJobCreated, closeForm }) => {
+const JobForm = ({ onJobCreated, closeForm, editingJob }) => {
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [location, setLocation] = useState("");
@@ -13,17 +13,29 @@ const JobForm = ({ onJobCreated, closeForm }) => {
   const [resume, setResume] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
 
+  // Prefill if editing
   useEffect(() => {
+    if (editingJob) {
+      setCompany(editingJob.companyName || "");
+      setRole(editingJob.role || "");
+      setLocation(editingJob.location || "");
+      setPayRange(editingJob.payRange || "");
+      setDescription(editingJob.description || "");
+      setApplicationDate(new Date(editingJob.applicationDate).toISOString().split("T")[0]);
+      setStatus(editingJob.status || "Applied");
+      setResume(editingJob.resume || "");
+      setCoverLetter(editingJob.coverLetter || "");
+    }
+
     document.body.classList.add("modal-open");
     return () => {
       document.body.classList.remove("modal-open");
     };
-  }, []);
-  
+  }, [editingJob]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newJob = {
+    const jobData = {
       companyName: company,
       role,
       location,
@@ -35,7 +47,11 @@ const JobForm = ({ onJobCreated, closeForm }) => {
       coverLetter
     };
 
-    axios.post("/jobs", newJob)
+    const request = editingJob
+      ? axios.patch(`/jobs/${editingJob._id}`, jobData)
+      : axios.post("/jobs", jobData);
+
+    request
       .then(() => {
         // Reset form
         setCompany("");
@@ -48,6 +64,7 @@ const JobForm = ({ onJobCreated, closeForm }) => {
         setResume("");
         setCoverLetter("");
         onJobCreated();
+        closeForm();
       })
       .catch(err => console.error(err));
   };
@@ -55,7 +72,7 @@ const JobForm = ({ onJobCreated, closeForm }) => {
   return (
     <div className="job-form-modal">
       <div className="job-form-container">
-        <h1 className="job-form-heading">Add Job</h1>
+        <h1 className="job-form-heading">{editingJob ? "Edit Job" : "Add Job"}</h1>
         <button className="job-form-close" onClick={closeForm}>❌</button>
         <form onSubmit={handleSubmit}>
           <input className="job-form-input" type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company Name" />
@@ -73,7 +90,7 @@ const JobForm = ({ onJobCreated, closeForm }) => {
           </select>
           <textarea className="job-form-textarea" value={resume} onChange={(e) => setResume(e.target.value)} placeholder="Paste Resume Content" />
           <textarea className="job-form-textarea" value={coverLetter} onChange={(e) => setCoverLetter(e.target.value)} placeholder="Paste Cover Letter Content" />
-          <button className="job-form-submit" type="submit">Add Job</button>
+          <button className="job-form-submit" type="submit">{editingJob ? "Update Job" : "Add Job"}</button>
         </form>
       </div>
     </div>
