@@ -67,7 +67,7 @@ const Dashboard = () => {
           <button className="btn logout" onClick={handleLogout}>Logout</button>
           <button className="btn add-job" onClick={() => setShowForm(true)}>+ Add Job</button>
           <button className="btn delete-rejected" onClick={handleDeleteRejected}>Delete All Rejected</button>
-          <Link to="/profile" className="back-link">User Profile</Link>
+          <Link to="/profile" className="back-link" style={{marginLeft: "0.5rem"}}>User Profile →</Link>
         </div>
       </header>
 
