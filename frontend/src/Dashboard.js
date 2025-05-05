@@ -102,7 +102,11 @@ const Dashboard = () => {
             {
               jobs.map(job => (
                 <tr key={job._id}>
-                  <td>{job.companyName}</td>
+                  <td>
+                    <Link to={`/jobs/${job._id}`} className="company-link">
+                      {job.companyName}
+                    </Link>
+                  </td>
                   <td>{job.role}</td>
                   <td>{job.location}</td>
                   <td>{job.payRange}</td>

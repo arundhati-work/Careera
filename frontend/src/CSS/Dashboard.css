@@ -138,3 +138,14 @@ table select {
 .delete-rejected:hover {
   background-color: #f39297;
 }
+
+.company-link {
+  color: #1e5f9e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.company-link:hover {
+  text-decoration: underline;
+}
+
