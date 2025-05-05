@@ -5,6 +5,8 @@ import Login from './Login';
 import Register from './Register';
 import Dashboard from './Dashboard';
 import PrivateRoute from './PrivateRoute';
+import ResumeViewer from './ResumeViewer';
+import CoverLetterViewer from './CoverLetterViewer';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Dashboard/>
           </PrivateRoute>  
           }/>
+          <Route path="/resume/:id" element={<PrivateRoute><ResumeViewer /></PrivateRoute>} />
+          <Route path="/coverletter/:id" element={<PrivateRoute><CoverLetterViewer /></PrivateRoute>} />
       </Routes>
     </Router>
   );
