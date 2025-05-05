@@ -1,0 +1,167 @@
+/* Container */
+.user-profile {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Topbar */
+  .user-profile-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+  
+  /* Dashboard Link */
+  .back-link {
+    display: inline-block;
+    color: #2b4f81;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid #2b4f81;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+    margin-right: 2rem;
+  }
+  
+  .back-link:hover {
+    background-color: #2b4f81;
+    color: white;
+  }
+  
+  /* Save Button (Top & Bottom) */
+  .save-button-top,
+  .save-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  
+  .save-button-top:hover,
+  .save-btn:hover {
+    background-color: #3e8e41;
+  }
+
+  
+  /* Form */
+  .user-profile form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Section Wrapper */
+  .user-profile .section-block {
+    margin-bottom: 1.5rem;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: #fafafa;
+    overflow: hidden;
+  }
+  
+  /* Section Header */
+  .user-profile h2 {
+    width: 100%;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #2b4f81;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .user-profile h2:hover {
+    background-color: #e4e4e4;
+  }
+
+  
+  /* Collapsible Content */
+  .collapsible-content {
+    padding: 1rem;
+    display: none;
+  }
+  
+  .collapsible-content.show {
+    display: block;
+  }
+  
+  /* Inputs and Textareas */
+  .user-profile input,
+  .user-profile textarea {
+    margin-bottom: 1rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  
+  /* Two Column Layout */
+  .user-profile .two-col-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  /* Textarea Height */
+  .user-profile textarea {
+    min-height: 80px;
+  }
+  
+  /* Default Buttons */
+  .user-profile button {
+    margin: 0.25rem 0.5rem 1rem 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    background-color: #2b4f81;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  .user-profile button:hover {
+    background-color: #1e3d66;
+  }
+  
+  /* Trash (Remove) Button */
+  .remove-btn {
+    background-color: #a94442;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .remove-btn:hover {
+    background-color: #922d2d;
+  }
+  
+  /* Details group in experience/projects */
+  .user-profile .details-group {
+    margin-top: 0.5rem;
+  }
+  
