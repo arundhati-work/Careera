@@ -130,8 +130,8 @@ table select {
 }
 
 .delete-rejected {
-  background-color: #f7b2b6; /* soft lavender-maroon tone */
-  color: #94080f; /* subtle maroon */
+  background-color: #f7b2b6;
+  color: #94080f;
   transition: background 0.2s ease;
 }
 
