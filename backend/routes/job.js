@@ -8,7 +8,7 @@ router.get("/", getAllJobs);
 router.post("/", createJob);
 router.get("/:jobId", getJobById);
 router.patch("/:jobId", updateJobById);
-router.delete("/:jobId", deleteJob);
 router.delete("/rejected", deleteRejectedJobs);
+router.delete("/:jobId", deleteJob);
 
 module.exports = router;

@@ -30,7 +30,17 @@ const Dashboard = () => {
         .catch(err => console.error("Delete failed", err));
     }
   };
-  
+
+  const handleDeleteRejected = () => {
+    if (window.confirm("Delete all rejected jobs? This action cannot be undone.")) {
+      axios.delete("/jobs/rejected")
+        .then(res => {
+          console.log(res.data.message);
+          setJobs(jobs.filter(job => job.status !== "Rejected"));
+        })
+        .catch(err => console.error("Batch delete failed", err));
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -48,7 +58,6 @@ const Dashboard = () => {
       })
       .catch(err => console.error("Failed to update status:", err));
   };
-  
 
   return (
     <div className="dashboard">
@@ -57,6 +66,7 @@ const Dashboard = () => {
         <div className="dashboard-buttons">
           <button className="btn logout" onClick={handleLogout}>Logout</button>
           <button className="btn add-job" onClick={() => setShowForm(true)}>+ Add Job</button>
+          <button className="btn delete-rejected" onClick={handleDeleteRejected}>🧹 Delete All Rejected</button>
         </div>
       </header>
 
@@ -121,7 +131,7 @@ const Dashboard = () => {
                   </td>
                   <td>
                     <div className="action-buttons">
-                      <button className="edit-btn" onClick={() => {setEditingJob(job); setShowForm(true)}}>✏️</button>
+                      <button className="edit-btn" onClick={() => { setEditingJob(job); setShowForm(true) }}>✏️</button>
                       <button className="delete-btn" onClick={() => handleDelete(job._id)}>🗑️</button>
                     </div>
                   </td>

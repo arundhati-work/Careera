@@ -126,5 +126,15 @@ table select {
 }
 
 .delete-btn:hover {
-  background-color: #f8bbd0;
+  background-color: #b92458;
+}
+
+.delete-rejected {
+  background-color: #f7b2b6; /* soft lavender-maroon tone */
+  color: #94080f; /* subtle maroon */
+  transition: background 0.2s ease;
+}
+
+.delete-rejected:hover {
+  background-color: #f39297;
 }
