@@ -14,7 +14,7 @@
   
   .job-form-container {
     background-color: #fff;
-    padding: 2rem 2.5rem;  /* More horizontal padding */
+    padding: 2rem 2.5rem;
     border-radius: 12px;
     max-height: 90vh;
     width: 100%;
@@ -24,7 +24,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* spacing between form sections */
+    gap: 1rem;
   }
 
   body.modal-open {

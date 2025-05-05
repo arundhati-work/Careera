@@ -66,7 +66,7 @@ const Dashboard = () => {
         <div className="dashboard-buttons">
           <button className="btn logout" onClick={handleLogout}>Logout</button>
           <button className="btn add-job" onClick={() => setShowForm(true)}>+ Add Job</button>
-          <button className="btn delete-rejected" onClick={handleDeleteRejected}>🧹 Delete All Rejected</button>
+          <button className="btn delete-rejected" onClick={handleDeleteRejected}>Delete All Rejected</button>
         </div>
       </header>
 

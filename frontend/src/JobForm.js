@@ -13,7 +13,6 @@ const JobForm = ({ onJobCreated, closeForm, editingJob }) => {
   const [resume, setResume] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
 
-  // Prefill if editing
   useEffect(() => {
     if (editingJob) {
       setCompany(editingJob.companyName || "");
