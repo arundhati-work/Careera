@@ -20,7 +20,7 @@ const userProfileSchema = mongoose.Schema({
             degree: String,
             school: String,
             duration: String,
-            relevantCourses: [String]
+            relevantCourses: String
         }
     ],
     experience: [
